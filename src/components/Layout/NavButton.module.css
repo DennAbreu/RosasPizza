@@ -1,0 +1,10 @@
+.navBtn {
+  background-color: white;
+  width: 7%;
+  height: 50px;
+}
+
+.navBtn:hover {
+  background-color: black;
+  color: white;
+}

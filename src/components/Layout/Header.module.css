@@ -1,0 +1,24 @@
+.container {
+  display: flex;
+  margin: auto;
+  width: 70%;
+  height: 200px;
+}
+
+/* .imgContainer {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  width: auto;
+} */
+.pImg {
+  border: 1px solid black;
+  width: 100%;
+  max-height: max-content;
+}
+/* 
+.pLogo {
+  border: 1px solid black;
+  position: absolute;
+  top: 5px;
+} */

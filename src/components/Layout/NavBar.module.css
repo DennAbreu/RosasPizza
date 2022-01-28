@@ -1,0 +1,10 @@
+.navContainer {
+  margin: auto;
+  width: 100%;
+  text-align: center;
+}
+
+.navContainer li {
+  display: inline;
+  padding-left: 0.1%;
+}
