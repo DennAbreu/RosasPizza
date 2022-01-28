@@ -11,8 +11,8 @@ const R_CATEGORIES = [
   "Sauce",
   "Heroes",
   "Salads",
-  "Pasta Dishes",
-  "Dinner Specials",
+  "Pasta ",
+  "Dinner",
   "Specialties",
   "Beverages",
 ];
