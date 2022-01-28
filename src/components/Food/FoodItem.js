@@ -1,21 +1,39 @@
-import React from "react";
-
+import React, { useState } from "react";
 import styles from "./FoodItem.module.css";
+import FoodOptions from "./FoodOptions";
 
 const FoodItem = (props) => {
-  const compiledData = {
-    name: props.name,
-    price: props.price,
+  const [activeModal, setActiveModal] = useState(false);
+
+  const foodModalHandler = () => {
+    setActiveModal((prevActiveModal) => !prevActiveModal);
+    console.log("FoodModalHandler Clicked");
   };
-  return (
+
+  const returnListDisplay = (
     <li className={styles.foodItems}>
-      <button onClick={props.onClick} className={styles.foodBtn}>
+      <button onClick={foodModalHandler} className={styles.foodBtn}>
         <ul className={styles.innerItems}>
           <li>{props.name}</li>
           <li>${props.price}</li>
         </ul>
       </button>
     </li>
+  );
+
+  const returnFoodOptionModal = (
+    <FoodOptions
+      name={props.name}
+      price={props.price}
+      onClose={foodModalHandler}
+    />
+  );
+
+  return (
+    <div>
+      {!activeModal && returnListDisplay}
+      {activeModal && returnFoodOptionModal}
+    </div>
   );
 };
 

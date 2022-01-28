@@ -7,7 +7,11 @@ const FoodOptions = (props) => {
 
   const foodModalContent = (
     <Fragment>
-      <FItemsForm onClose={props.onClose} />
+      <FItemsForm
+        name={props.name}
+        price={props.price}
+        onClose={props.onClose}
+      />
     </Fragment>
   );
 
