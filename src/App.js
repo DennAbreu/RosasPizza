@@ -2,14 +2,17 @@ import "./App.css";
 import Header from "./components/Layout/Header";
 import NavBar from "./components/Layout/NavBar";
 import DisplayFood from "./components/Food/DisplayFood";
+import FoodProvider from "./components/ctx/FoodProvider";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <NavBar />
-      <DisplayFood />
-    </div>
+    <FoodProvider>
+      <div>
+        <Header />
+        <NavBar />
+        <DisplayFood />
+      </div>
+    </FoodProvider>
   );
 }
 

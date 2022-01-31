@@ -22,7 +22,6 @@ const DisplayFood = (props) => {
 
       for (const key in responseData) {
         loadedPizza.push({
-          key: key,
           name: responseData[key].name,
           price: responseData[key].price,
         });
@@ -37,7 +36,7 @@ const DisplayFood = (props) => {
 
   const pizzaList = pizzaItems.map((pItem) => (
     <FoodItem
-      key={pItem.key}
+      key={Math.random().toString()}
       name={pItem.name}
       price={pItem.price}
       onClick={props.onClick}
