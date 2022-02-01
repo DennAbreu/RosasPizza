@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import FoodContext from "../ctx/food-context";
 
 import styles from "./FItemsForm.module.css";
 
@@ -8,20 +9,28 @@ const FItemsForm = (props) => {
   const amountOrderedRef = useRef();
 
   const [currentPrice, setCurrentPrice] = useState(props.price);
+
+  const fCtx = useContext(FoodContext);
+
   // const [selected, setSelected] = useState();
 
   // let largePrice = props.price + 3;
 
-  const submitTestInfo = (event) => {
+  const submitHandler = (event) => {
     event.preventDefault();
 
     const itemData = {
+      id: props.id,
       name: props.name,
+
+      //maybe unecessary value
+      individualPrice: props.price,
       // option: selected,
-      instructions: enteredInstructionsRef.current.value,
       amountOrdered: amountOrderedRef.current.value,
       totalPrice: amountOrderedRef.current.value * props.price,
     };
+
+    fCtx.addToCart(itemData);
 
     props.onClose();
     console.log(itemData);
@@ -83,7 +92,7 @@ const FItemsForm = (props) => {
             onChange={priceHandler}
           ></input>
           <span> ${currentPrice}</span>
-          <button onClick={submitTestInfo}>Add to Order</button>
+          <button onClick={submitHandler}>Add to Order</button>
         </div>
       </form>
     </div>

@@ -37,6 +37,7 @@ const DisplayFood = (props) => {
   const pizzaList = pizzaItems.map((pItem) => (
     <FoodItem
       key={Math.random().toString()}
+      id={pItem.name}
       name={pItem.name}
       price={pItem.price}
       onClick={props.onClick}

@@ -23,6 +23,7 @@ const FoodItem = (props) => {
 
   const returnFoodOptionModal = (
     <FoodOptions
+      id={props.id}
       name={props.name}
       price={props.price}
       onClose={foodModalHandler}

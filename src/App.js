@@ -1,17 +1,28 @@
 import "./App.css";
+import React, { useState } from "react";
 import Header from "./components/Layout/Header";
 import NavBar from "./components/Layout/NavBar";
 import DisplayFood from "./components/Food/DisplayFood";
 import FoodProvider from "./components/ctx/FoodProvider";
+import Cart from "./components/Cart/Cart";
 
 function App() {
+  const [cartModalShowing, setCartModalShowing] = useState(false);
+
+  const showCartHandler = () => {
+    setCartModalShowing(true);
+  };
+
+  const hideCartHandler = () => {
+    setCartModalShowing(false);
+  };
+
   return (
     <FoodProvider>
-      <div>
-        <Header />
-        <NavBar />
-        <DisplayFood />
-      </div>
+      {cartModalShowing && <Cart onClose={hideCartHandler} />}
+      <Header onShowCart={showCartHandler} />
+      <NavBar />
+      <DisplayFood />
     </FoodProvider>
   );
 }

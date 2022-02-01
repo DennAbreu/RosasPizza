@@ -8,6 +8,7 @@ const FoodOptions = (props) => {
   const foodModalContent = (
     <Fragment>
       <FItemsForm
+        id={props.id}
         name={props.name}
         price={props.price}
         onClose={props.onClose}
