@@ -3,8 +3,6 @@ import FoodModal from "./../UI/FoodModal";
 import FItemsForm from "./FItemsForm";
 
 const FoodOptions = (props) => {
-  //   const [isActive, setIsActive] = useState(false);
-
   const foodModalContent = (
     <Fragment>
       <FItemsForm

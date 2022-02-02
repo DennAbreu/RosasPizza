@@ -31,9 +31,9 @@ const FoodProvider = (props) => {
     dispatchCartAction({ type: "ADD", item: item });
   };
 
-  const removeItemHandler = (id) => {
-    dispatchCartAction({ type: "REMOVE", id: id });
-  };
+  // const removeItemHandler = (id) => {
+  //   dispatchCartAction({ type: "REMOVE", id: id });
+  // };
 
   // const clearItemsHandler = () => {
   //   dispatchCartAction({ type: "CLEAR" });
@@ -44,7 +44,7 @@ const FoodProvider = (props) => {
     totalAmount: cartState.totalAmount,
     totalPrice: cartState.totalPrice,
     addToCart: addItemHandler,
-    removeFromCart: removeItemHandler,
+    // removeFromCart: removeItemHandler,
     // clearAll: clearItemsHandler,
   };
 

@@ -5,7 +5,7 @@ const FoodContext = React.createContext({
   totalAmount: 0,
   totalPrice: 0,
   addToCart: (item) => {},
-  removeFromCart: (id) => {},
+  // removeFromCart: (id) => {},
   // clearAll: () => {},
 });
 

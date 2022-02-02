@@ -7,19 +7,24 @@ const CartContent = (props) => {
 
   const fCtxArray = [];
 
-  for (let x in foodCtx.items) {
+  for (let index in foodCtx.items) {
     fCtxArray.push({
       key: Math.random(),
-      name: foodCtx.items[x].id,
-      totalAmount: foodCtx.items[x].totalAmount,
-      totalPrice: foodCtx.items[x].totalPrice,
+      name: foodCtx.items[index].id,
+      totalAmount: foodCtx.items[index].amountOrdered,
+      totalPrice: foodCtx.items[index].totalPrice,
     });
   }
 
   console.log(fCtxArray);
 
   const cartItemsArray = fCtxArray.map((x) => (
-    <CartItems key={x.key} name={x.name} />
+    <CartItems
+      key={x.key}
+      name={x.name}
+      totalAmount={x.totalAmount}
+      totalPrice={x.totalPrice}
+    />
   ));
 
   return (

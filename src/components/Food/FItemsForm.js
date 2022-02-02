@@ -4,17 +4,11 @@ import FoodContext from "../ctx/food-context";
 import styles from "./FItemsForm.module.css";
 
 const FItemsForm = (props) => {
-  // const enteredOptionRef = useRef();
+  const fCtx = useContext(FoodContext);
   const enteredInstructionsRef = useRef();
   const amountOrderedRef = useRef();
-
   const [currentPrice, setCurrentPrice] = useState(props.price);
-
-  const fCtx = useContext(FoodContext);
-
-  // const [selected, setSelected] = useState();
-
-  // let largePrice = props.price + 3;
+  const [currentAmount, setCurrentAmount] = useState(1);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -22,22 +16,24 @@ const FItemsForm = (props) => {
     const itemData = {
       id: props.id,
       name: props.name,
-
-      //maybe unecessary value
       individualPrice: props.price,
-      // option: selected,
-      amountOrdered: amountOrderedRef.current.value,
-      totalPrice: amountOrderedRef.current.value * props.price,
+      amountOrdered: currentAmount,
+      totalPrice: currentPrice,
+
+      //amountOrdered: amountOrderedRef.current.value,
+      //amountOrderedRef.current.value * props.price
     };
 
     fCtx.addToCart(itemData);
 
     props.onClose();
+    console.log("FItemsForm.js Object Produces:  ");
     console.log(itemData);
   };
 
   const priceHandler = () => {
-    setCurrentPrice(amountOrderedRef.current.value * props.price);
+    setCurrentPrice(+amountOrderedRef.current.value * props.price);
+    setCurrentAmount(+amountOrderedRef.current.value);
   };
 
   return (
