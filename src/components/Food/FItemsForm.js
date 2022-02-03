@@ -1,14 +1,13 @@
 import React, { useContext, useRef, useState } from "react";
 import FoodContext from "../ctx/food-context";
-
 import styles from "./FItemsForm.module.css";
 
 const FItemsForm = (props) => {
   const fCtx = useContext(FoodContext);
   const enteredInstructionsRef = useRef();
-  const amountOrderedRef = useRef();
+  const qtyOrderedRef = useRef();
   const [currentPrice, setCurrentPrice] = useState(props.price);
-  const [currentAmount, setCurrentAmount] = useState(1);
+  const [currentQty, setCurrentQty] = useState(1);
 
   const submitHandler = (event) => {
     event.preventDefault();
@@ -17,11 +16,8 @@ const FItemsForm = (props) => {
       id: props.id,
       name: props.name,
       individualPrice: props.individualPrice,
-      amountOrdered: currentAmount,
+      qtyOrdered: currentQty,
       totalPrice: currentPrice,
-
-      //amountOrdered: amountOrderedRef.current.value,
-      //amountOrderedRef.current.value * props.price
     };
 
     fCtx.addToCart(itemData);
@@ -32,42 +28,14 @@ const FItemsForm = (props) => {
   };
 
   const priceHandler = () => {
-    setCurrentPrice(+amountOrderedRef.current.value * props.price);
-    setCurrentAmount(+amountOrderedRef.current.value);
+    setCurrentPrice(+qtyOrderedRef.current.value * props.price);
+    setCurrentQty(+qtyOrderedRef.current.value);
   };
 
   return (
     <div className={styles.fContainer}>
       <form className={styles.form}>
         <h1>{props.name}</h1>
-
-        {/* <section className={styles.secSpacing}>
-          Options(Pick One)
-          <section>
-            <input
-              name="options"
-              type="radio"
-              id="small"
-              value={props.price}
-              onChange={selectedHandler}
-              ref={enteredOptionRef}
-            />
-            <label htmlFor="small">Small</label>
-            <span> ${props.price}</span>
-          </section>
-          <section>
-            <input
-              name="options"
-              type="radio"
-              id="large"
-              value={largePrice}
-              onChange={selectedHandler}
-              ref={enteredOptionRef}
-            />
-            <label htmlFor="large">Large</label>
-            <span> ${largePrice}</span>
-          </section>
-        </section> */}
         <section className={styles.secSpacing}>
           <label className={styles.skip}>Special Instructions</label>
           <textarea
@@ -84,11 +52,13 @@ const FItemsForm = (props) => {
             defaultValue="1"
             max="10"
             step="1"
-            ref={amountOrderedRef}
+            ref={qtyOrderedRef}
             onChange={priceHandler}
           ></input>
-          <span> ${currentPrice}</span>
-          <button onClick={submitHandler}>Add to Order</button>
+          <button className={styles.orderBtn} onClick={submitHandler}>
+            <span>Add to Order</span>
+            <span>${currentPrice}</span>
+          </button>
         </div>
       </form>
     </div>

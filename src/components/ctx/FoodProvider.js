@@ -3,22 +3,27 @@ import FoodContext from "./food-context";
 
 const defaultFoodCtx = {
   items: [],
-  totalAmount: 0,
+  totalQty: 0,
   totalPrice: 0,
+  cartTotal: 0,
 };
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    const totalAmountUpdated = state.totalAmount + +action.item.amountOrdered;
+    const totalQtyUpdated = state.totalQty + +action.item.qtyOrdered;
     const totalPriceUpdated = state.totalPrice + +action.item.totalPrice;
+    const cartTotalUpdated = state.cartTotal + totalPriceUpdated;
 
     let updatedItems = state.items.concat(action.item);
 
     return {
       items: updatedItems,
-      totalAmount: totalAmountUpdated,
+      totalQty: totalQtyUpdated,
       totalPrice: totalPriceUpdated,
+      cartTotal: totalPriceUpdated,
     };
-  }
+  } //end 'Add'
+
+  return defaultFoodCtx;
 }; //end cartReducer
 
 const FoodProvider = (props) => {
@@ -41,9 +46,11 @@ const FoodProvider = (props) => {
 
   const currFoodCtx = {
     items: cartState.items,
-    totalAmount: cartState.totalAmount,
+    totalQty: cartState.totalQty,
     totalPrice: cartState.totalPrice,
+    cartTotal: cartState.cartTotal,
     addToCart: addItemHandler,
+
     // removeFromCart: removeItemHandler,
     // clearAll: clearItemsHandler,
   };

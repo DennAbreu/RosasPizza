@@ -1,21 +1,23 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import styles from "./CartItems.module.css";
-// import FoodContext from "../ctx/food-context";
+import FoodContext from "../ctx/food-context";
 
 const CartItems = (props) => {
-  const [currAmt, setCurrAmt] = useState(props.totalAmount);
+  const foodCtx = useContext(FoodContext);
+  const [currQty, setCurrQty] = useState(props.totalQty);
   const [currPrice, setCurrPrice] = useState(props.totalPrice);
+  // const [totalCart, setTotalCart] = useState();
 
-  const addValueHandler = () => {
-    setCurrAmt((prevCurrAmt) => prevCurrAmt + 1);
+  const addAmtHandler = () => {
+    setCurrQty((prevCurrQty) => prevCurrQty + 1);
   };
 
-  const subtractValueHandler = () => {
-    setCurrAmt((prevCurrAmt) => prevCurrAmt - 1);
+  const subtractAmtHandler = () => {
+    setCurrQty((prevCurrQty) => prevCurrQty - 1);
   };
   useEffect(() => {
-    setCurrPrice(props.individualPrice * currAmt);
-  }, [props.individualPrice, currAmt]);
+    setCurrPrice(props.individualPrice * currQty);
+  }, [props.individualPrice, currQty]);
 
   return (
     <div className={styles.container}>
@@ -23,9 +25,9 @@ const CartItems = (props) => {
         {props.name} <p>${currPrice}</p>
       </span>
       <span>
-        <button onClick={subtractValueHandler}>-</button>
-        <input type="numbers" value={currAmt} />
-        <button onClick={addValueHandler}>+</button>
+        <button onClick={subtractAmtHandler}>-</button>
+        <input type="numbers" value={currQty} />
+        <button onClick={addAmtHandler}>+</button>
         <div>REMOVE</div>
       </span>
     </div>
