@@ -11,6 +11,7 @@ const CartContent = (props) => {
     fCtxArray.push({
       key: Math.random(),
       name: foodCtx.items[index].id,
+      individualPrice: foodCtx.items[index].individualPrice,
       totalAmount: foodCtx.items[index].amountOrdered,
       totalPrice: foodCtx.items[index].totalPrice,
     });
@@ -22,6 +23,7 @@ const CartContent = (props) => {
     <CartItems
       key={x.key}
       name={x.name}
+      individualPrice={x.individualPrice}
       totalAmount={x.totalAmount}
       totalPrice={x.totalPrice}
     />
@@ -31,6 +33,7 @@ const CartContent = (props) => {
     <div>
       <div>{cartItemsArray}</div>
       <div>CheckOut Forms</div>
+      <div>CART TOTAL GOES HERE!</div>
       <div>
         <button>Cancel</button>
         <button>Submit</button>

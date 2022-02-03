@@ -16,7 +16,7 @@ const FItemsForm = (props) => {
     const itemData = {
       id: props.id,
       name: props.name,
-      individualPrice: props.price,
+      individualPrice: props.individualPrice,
       amountOrdered: currentAmount,
       totalPrice: currentPrice,
 

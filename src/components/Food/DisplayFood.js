@@ -44,7 +44,8 @@ const DisplayFood = (props) => {
       onClose={props.onClose}
     />
   ));
-
+  // console.log("DisplayFood.js:");
+  // console.log(pizzaItems);
   return (
     <Card>
       <div>

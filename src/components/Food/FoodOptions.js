@@ -8,6 +8,7 @@ const FoodOptions = (props) => {
       <FItemsForm
         id={props.id}
         name={props.name}
+        individualPrice={props.price}
         price={props.price}
         onClose={props.onClose}
       />

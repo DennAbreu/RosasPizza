@@ -21,11 +21,14 @@ const FoodItem = (props) => {
     </li>
   );
 
+  // console.log("FoodItem.js: " + props.id + " " + props.price);
+
   const returnFoodOptionModal = (
     <FoodOptions
       id={props.id}
       name={props.name}
       price={props.price}
+      individualPrice={props.individualPrice}
       onClose={foodModalHandler}
     />
   );
