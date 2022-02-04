@@ -4,24 +4,39 @@ import FoodContext from "./food-context";
 const defaultFoodCtx = {
   items: [],
   totalQty: 0,
-  totalPrice: 0,
   cartTotal: 0,
 };
+
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     const totalQtyUpdated = state.totalQty + +action.item.qtyOrdered;
-    const totalPriceUpdated = state.totalPrice + +action.item.totalPrice;
-    const cartTotalUpdated = state.cartTotal + totalPriceUpdated;
-
+    const totalCartUpdated = state.cartTotal + +action.item.totalPrice;
     let updatedItems = state.items.concat(action.item);
 
     return {
       items: updatedItems,
       totalQty: totalQtyUpdated,
-      totalPrice: totalPriceUpdated,
-      cartTotal: totalPriceUpdated,
+      cartTotal: totalCartUpdated,
     };
-  } //end 'Add'
+  } //end 'ADD'
+
+  if (action.type === "UPDATE_ITEM_QTY") {
+    const currItems = state.items;
+    const indexOfCurrItems = currItems
+      .map((e) => {
+        return e.id;
+      })
+      .indexOf(action.id);
+    state.items[indexOfCurrItems].qtyOrdered = action.newQty;
+    console.log(action.newQty);
+    // console.log(state.items[indexOfCurrItems].id + "'s New QTY: ");
+    // console.log(state.items[indexOfCurrItems].qtyOrdered);
+    return {
+      items: state.items,
+      totalQty: state.totalQty,
+      cartTotal: action.new,
+    };
+  } //end 'UPDATE_ITEM_QTY"
 
   return defaultFoodCtx;
 }; //end cartReducer
@@ -36,6 +51,10 @@ const FoodProvider = (props) => {
     dispatchCartAction({ type: "ADD", item: item });
   };
 
+  const updateItemQtyHandler = (id, newQty) => {
+    dispatchCartAction({ type: "UPDATE_ITEM_QTY", id: id, newQty: newQty });
+  };
+
   // const removeItemHandler = (id) => {
   //   dispatchCartAction({ type: "REMOVE", id: id });
   // };
@@ -47,9 +66,9 @@ const FoodProvider = (props) => {
   const currFoodCtx = {
     items: cartState.items,
     totalQty: cartState.totalQty,
-    totalPrice: cartState.totalPrice,
     cartTotal: cartState.cartTotal,
     addToCart: addItemHandler,
+    updateItemQty: updateItemQtyHandler,
 
     // removeFromCart: removeItemHandler,
     // clearAll: clearItemsHandler,

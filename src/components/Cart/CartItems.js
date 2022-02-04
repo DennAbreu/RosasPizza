@@ -6,18 +6,29 @@ const CartItems = (props) => {
   const foodCtx = useContext(FoodContext);
   const [currQty, setCurrQty] = useState(props.totalQty);
   const [currPrice, setCurrPrice] = useState(props.totalPrice);
-  // const [totalCart, setTotalCart] = useState();
 
-  const addAmtHandler = () => {
-    setCurrQty((prevCurrQty) => prevCurrQty + 1);
-  };
+  // const addQtyHandler = () => {
+  //   setCurrQty((prevCurrQty) => prevCurrQty + 1);
+  // };
 
-  const subtractAmtHandler = () => {
-    setCurrQty((prevCurrQty) => prevCurrQty - 1);
+  // const subtractQtyHandler = () => {
+  //   setCurrQty((prevCurrQty) => prevCurrQty - 1);
+  // };
+
+  // const updateItemQtyHandler = () => {
+  //   foodCtx.updateItemQty(props.id, currQty);
+  // };
+
+  // useEffect(() => {
+  //   setCurrPrice(props.individualPrice * currQty);
+  //   console.log("CurrQty:" + currQty);
+  //   console.log("CurrPrice: " + currPrice);
+
+  // }, [currQty, currPrice]);
+
+  const testFun = () => {
+    console.log("test");
   };
-  useEffect(() => {
-    setCurrPrice(props.individualPrice * currQty);
-  }, [props.individualPrice, currQty]);
 
   return (
     <div className={styles.container}>
@@ -25,9 +36,13 @@ const CartItems = (props) => {
         {props.name} <p>${currPrice}</p>
       </span>
       <span>
-        <button onClick={subtractAmtHandler}>-</button>
-        <input type="numbers" value={currQty} />
-        <button onClick={addAmtHandler}>+</button>
+        <input
+          type="number"
+          min="1"
+          step="1"
+          onChange={testFun}
+          defaultValue={currQty}
+        />
         <div>REMOVE</div>
       </span>
     </div>

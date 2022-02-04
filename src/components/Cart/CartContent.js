@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import FoodContext from "../ctx/food-context";
 import CartItems from "./CartItems";
+import Checkout from "./Checkout";
 
 const CartContent = (props) => {
   const foodCtx = useContext(FoodContext);
@@ -17,7 +18,6 @@ const CartContent = (props) => {
       totalPrice: foodCtx.items[index].totalPrice,
     });
   }
-
   console.log(fCtxArray);
 
   const cartItemsArray = fCtxArray.map((x) => (
@@ -34,12 +34,10 @@ const CartContent = (props) => {
   return (
     <div>
       <div>{cartItemsArray}</div>
-      <div>CheckOut Forms</div>
       <div>Total: ${foodCtx.cartTotal}</div>
-      <div>
-        <button>Cancel</button>
-        <button>Submit</button>
-      </div>
+      {/* <div>
+        <Checkout />
+      </div> */}
     </div>
   );
 };

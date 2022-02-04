@@ -7,7 +7,7 @@ const FoodItem = (props) => {
 
   const foodModalHandler = () => {
     setActiveModal((prevActiveModal) => !prevActiveModal);
-    console.log("FoodModalHandler Clicked");
+    // console.log("FoodModalHandler Clicked");
   };
 
   const returnListDisplay = (
