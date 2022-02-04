@@ -34,7 +34,7 @@ const cartReducer = (state, action) => {
     return {
       items: state.items,
       totalQty: state.totalQty,
-      cartTotal: action.new,
+      cartTotal: action.newQty,
     };
   } //end 'UPDATE_ITEM_QTY"
 
