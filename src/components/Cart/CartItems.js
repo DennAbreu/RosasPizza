@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext, useRef } from "react";
+import { useState, useContext, useRef } from "react";
 import styles from "./CartItems.module.css";
 import FoodContext from "../ctx/food-context";
 
@@ -6,6 +6,7 @@ const CartItems = (props) => {
   const foodCtx = useContext(FoodContext);
   const qtyRef = useRef();
   const [currPrice, setCurrPrice] = useState(props.totalPrice);
+  const [currQty, setCurrQty] = useState(props.totalQty);
 
   // const addQtyHandler = () => {
   //   setCurrQty((prevCurrQty) => prevCurrQty + 1);
@@ -15,7 +16,7 @@ const CartItems = (props) => {
   //   setCurrQty((prevCurrQty) => prevCurrQty - 1);
   // };
 
-  const updateItemQtyHandler = () => {
+  const updateItemQtyHandler = (event) => {
     foodCtx.updateItemQty(props.id, qtyRef.current.value);
   };
 
@@ -27,28 +28,33 @@ const CartItems = (props) => {
   // }, [currQty, currPrice]);
 
   const testFun = (event) => {
+    event.preventDefault();
     console.log("test");
+    console.log(qtyRef.current.value);
     setCurrPrice(event.target.value * props.individualPrice);
+    setCurrQty(qtyRef.current.value);
     updateItemQtyHandler();
   };
 
   return (
     <div className={styles.container}>
       <span className={styles.mainSpan}>
-        {props.name} <p>${currPrice}</p>
+        {props.name}
+        <div>${currPrice}</div>
       </span>
-      <span>
+      <div className={styles.numInput}>
         <input
+          className={styles.numInputBox}
           ref={qtyRef}
           type="number"
-          min="0"
+          min="1"
           max="10"
-          step="1"
-          onChange={testFun}
-          defaultValue={props.totalQty}
+          defaultValue={currQty}
         />
-        <div>REMOVE</div>
-      </span>
+        <div>
+          <button>REMOVE</button>
+        </div>
+      </div>
     </div>
   );
 };
