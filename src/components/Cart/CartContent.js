@@ -1,10 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import FoodContext from "../ctx/food-context";
 import CartItems from "./CartItems";
 import Checkout from "./Checkout";
 
 const CartContent = (props) => {
   const foodCtx = useContext(FoodContext);
+  const [orderSuccess, setOrderSuccess] = useState(false);
 
   const fCtxArray = [];
 
@@ -31,13 +32,24 @@ const CartContent = (props) => {
     />
   ));
 
+  const orderSuccessHandler = (x) => {
+    setOrderSuccess(x);
+    printOrder();
+  };
+
+  const printOrder = () => {
+    if (orderSuccess === true) {
+      console.log("Successful Order Checker: " + orderSuccess);
+    }
+  };
+
   return (
     <div>
       <div>{cartItemsArray}</div>
+      <div>
+        <Checkout orderSubmitted={orderSuccessHandler} />
+      </div>
       <div>Total: ${foodCtx.cartTotal}</div>
-      {/* <div>
-        <Checkout />
-      </div> */}
     </div>
   );
 };

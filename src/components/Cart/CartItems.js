@@ -3,38 +3,22 @@ import styles from "./CartItems.module.css";
 import FoodContext from "../ctx/food-context";
 
 const CartItems = (props) => {
-  const foodCtx = useContext(FoodContext);
-  const qtyRef = useRef();
+  // const foodCtx = useContext(FoodContext);
+  // const qtyRef = useRef();
   const [currPrice, setCurrPrice] = useState(props.totalPrice);
-  const [currQty, setCurrQty] = useState(props.totalQty);
+  // const [currQty, setCurrQty] = useState(props.totalQty);
 
-  // const addQtyHandler = () => {
-  //   setCurrQty((prevCurrQty) => prevCurrQty + 1);
+  // const updateItemQtyHandler = (num) => {
+  //   foodCtx.updateItemQty(props.id, num);
   // };
 
-  // const subtractQtyHandler = () => {
-  //   setCurrQty((prevCurrQty) => prevCurrQty - 1);
-  // };
-
-  const updateItemQtyHandler = (event) => {
-    foodCtx.updateItemQty(props.id, qtyRef.current.value);
-  };
-
-  // useEffect(() => {
+  // const onChangeHandler = (event) => {
+  //   let currQty = event.target.value;
   //   setCurrPrice(props.individualPrice * currQty);
-  //   console.log("CurrQty:" + currQty);
+  //   console.log(event.target.value);
   //   console.log("CurrPrice: " + currPrice);
-
-  // }, [currQty, currPrice]);
-
-  const testFun = (event) => {
-    event.preventDefault();
-    console.log("test");
-    console.log(qtyRef.current.value);
-    setCurrPrice(event.target.value * props.individualPrice);
-    setCurrQty(qtyRef.current.value);
-    updateItemQtyHandler();
-  };
+  //   console.log("CurrQty: " + event.target.value);
+  // };
 
   return (
     <div className={styles.container}>
@@ -43,14 +27,17 @@ const CartItems = (props) => {
         <div>${currPrice}</div>
       </span>
       <div className={styles.numInput}>
-        <input
+        <span>x{props.totalQty}</span>
+        {/* <input
           className={styles.numInputBox}
           ref={qtyRef}
           type="number"
           min="1"
           max="10"
-          defaultValue={currQty}
-        />
+          step="1"
+          onChange={onChangeHandler}
+          defaultValue={props.totalQty}
+        /> */}
         <div>
           <button>REMOVE</button>
         </div>

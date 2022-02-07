@@ -14,7 +14,7 @@ const DisplayFood = (props) => {
       );
 
       if (!response.ok) {
-        throw new Error("Something went wrong in Fetch request...");
+        throw new Error("Something went wrong with the Fetch request...");
       }
 
       const responseData = await response.json();
