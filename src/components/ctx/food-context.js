@@ -6,9 +6,8 @@ const FoodContext = React.createContext({
   cartTotal: 0,
   addToCart: (item) => {},
   updateItemQty: (id, newQty) => {},
-
-  // removeFromCart: (id) => {},
-  // clearAll: () => {},
+  removeFromCart: (id) => {},
+  clearAll: () => {},
 });
 
 export default FoodContext;

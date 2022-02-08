@@ -29,6 +29,7 @@ const FoodItem = (props) => {
       name={props.name}
       price={props.price}
       individualPrice={props.individualPrice}
+      instructions={props.instructions}
       onClose={foodModalHandler}
     />
   );

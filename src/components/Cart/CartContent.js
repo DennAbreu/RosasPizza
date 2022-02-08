@@ -1,11 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import FoodContext from "../ctx/food-context";
 import CartItems from "./CartItems";
 import Checkout from "./Checkout";
 
 const CartContent = (props) => {
   const foodCtx = useContext(FoodContext);
-  const [orderSuccess, setOrderSuccess] = useState(false);
+  const [orderComplete, setOrderComplete] = useState(false);
+  const [cartEmpty, setCartEmpty] = useState(true);
 
   const fCtxArray = [];
 
@@ -17,9 +18,10 @@ const CartContent = (props) => {
       individualPrice: foodCtx.items[index].individualPrice,
       totalQty: foodCtx.items[index].qtyOrdered,
       totalPrice: foodCtx.items[index].totalPrice,
+      instructions: foodCtx.items[index].instructions,
     });
   }
-  console.log(fCtxArray);
+  // console.log(fCtxArray);
 
   const cartItemsArray = fCtxArray.map((x) => (
     <CartItems
@@ -29,28 +31,48 @@ const CartContent = (props) => {
       individualPrice={x.individualPrice}
       totalQty={x.totalQty}
       totalPrice={x.totalPrice}
+      instructions={x.instructions}
     />
   ));
 
-  const orderSuccessHandler = (x) => {
-    setOrderSuccess(x);
-    printOrder();
-  };
-
-  const printOrder = () => {
-    if (orderSuccess === true) {
-      console.log("Successful Order Checker: " + orderSuccess);
+  useEffect(() => {
+    if (foodCtx.totalQty < 1) {
+      setCartEmpty(true);
+    } else {
+      setCartEmpty(false);
     }
+  }, [foodCtx.totalQty]);
+
+  const orderSuccessHandler = (x) => {
+    setOrderComplete(x);
   };
 
-  return (
+  const showSuccessOrderMessage = <p>Order was successful!</p>;
+  const emptyCart = <p>Cart is Empty.</p>;
+
+  const showCartContents = (
     <div>
       <div>{cartItemsArray}</div>
+      <div>Total: ${foodCtx.cartTotal}</div>
       <div>
         <Checkout orderSubmitted={orderSuccessHandler} />
       </div>
-      <div>Total: ${foodCtx.cartTotal}</div>
     </div>
+  );
+
+  return (
+    <Fragment>
+      {/* <div>
+        <div>{cartItemsArray}</div>
+        <div>
+          <Checkout orderSubmitted={orderSuccessHandler} />
+        </div>
+        <div>Total: ${foodCtx.cartTotal}</div>
+      </div> */}
+      {!orderComplete && !cartEmpty && showCartContents}
+      {!orderComplete && cartEmpty && emptyCart}
+      {orderComplete && showSuccessOrderMessage}
+    </Fragment>
   );
 };
 

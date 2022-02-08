@@ -4,7 +4,7 @@ import styles from "./FItemsForm.module.css";
 
 const FItemsForm = (props) => {
   const fCtx = useContext(FoodContext);
-  const enteredInstructionsRef = useRef();
+  const instructionsRef = useRef();
   const qtyOrderedRef = useRef();
   const [currentPrice, setCurrentPrice] = useState(props.price);
   const [currentQty, setCurrentQty] = useState(1);
@@ -18,6 +18,7 @@ const FItemsForm = (props) => {
       individualPrice: props.individualPrice,
       qtyOrdered: currentQty,
       totalPrice: currentPrice,
+      instructions: instructionsRef.current.value,
     };
 
     fCtx.addToCart(itemData);
@@ -40,7 +41,8 @@ const FItemsForm = (props) => {
           <label className={styles.skip}>Special Instructions</label>
           <textarea
             id="sInstructionsTxt"
-            ref={enteredInstructionsRef}
+            ref={instructionsRef}
+            maxLength="90"
             placeholder="Add a note(extra sauce, no onions, etc...)"
           ></textarea>
         </section>

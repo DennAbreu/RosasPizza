@@ -7,30 +7,38 @@ const defaultFoodCtx = {
   cartTotal: 0,
 };
 
-// const cartTotalUpdater = (itemsArray) => {
-//   let cartTotal = 0;
-//   for (let index in itemsArray) {
-//     cartTotal += itemsArray[index].totalPrice;
-//   }
-//   return cartTotal;
-// };
+const cartTotalUpdater = (itemsArray) => {
+  let cartTotal = 0;
+  for (let index in itemsArray) {
+    cartTotal += itemsArray[index].totalPrice;
+  }
+  return cartTotal;
+};
 
-// const quantityUpdater = (itemsArray) => {
-//   let totalQty = 0;
-//   for (let index in itemsArray) {
-//     totalQty = totalQty + itemsArray[index].totalQty;
-//   }
+const itemsSplicer = (itemsArray, indexOfItem) => {
+  let results = itemsArray.filter((content) => {
+    return content !== itemsArray[indexOfItem];
+  });
 
-//   return totalQty;
-// };
+  return results;
+};
 
-// const getIndexID = (itemsArray, id) => {
-//   return itemsArray
-//     .map((e) => {
-//       return e.id;
-//     })
-//     .indexOf(id);
-// };
+const qtyUpdater = (itemsArray) => {
+  let totalQty = 0;
+  for (let index in itemsArray) {
+    totalQty += +itemsArray[index].qtyOrdered;
+  }
+
+  return totalQty;
+};
+
+const getIndexID = (itemsArray, id) => {
+  return itemsArray
+    .map((e) => {
+      return e.id;
+    })
+    .indexOf(id);
+};
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
@@ -44,6 +52,25 @@ const cartReducer = (state, action) => {
       cartTotal: totalCartUpdated,
     };
   } //end 'ADD'
+
+  if (action.type === "CLEAR") {
+    return defaultFoodCtx;
+  }
+
+  if (action.type === "REMOVE") {
+    const itemIndex = getIndexID(state.items, action.id);
+    console.log("The item index is: " + itemIndex);
+    let updatedItems = itemsSplicer(state.items, itemIndex);
+    let updatedQty = qtyUpdater(updatedItems);
+    let updatedCartTotal = cartTotalUpdater(updatedItems);
+    console.log(updatedItems);
+
+    return {
+      items: updatedItems,
+      totalQty: updatedQty,
+      cartTotal: updatedCartTotal,
+    };
+  }
 
   // if (action.type === "UPDATE_ITEM_QTY") {
   //   const indexOfCurrItems = getIndexID(state.items, action.id);
@@ -78,13 +105,13 @@ const FoodProvider = (props) => {
     dispatchCartAction({ type: "UPDATE_ITEM_QTY", id: id, newQty: newQty });
   };
 
-  // const removeItemHandler = (id) => {
-  //   dispatchCartAction({ type: "REMOVE", id: id });
-  // };
+  const removeItemHandler = (id) => {
+    dispatchCartAction({ type: "REMOVE", id: id });
+  };
 
-  // const clearItemsHandler = () => {
-  //   dispatchCartAction({ type: "CLEAR" });
-  // };
+  const clearItemsHandler = () => {
+    dispatchCartAction({ type: "CLEAR" });
+  };
 
   const currFoodCtx = {
     items: cartState.items,
@@ -92,9 +119,8 @@ const FoodProvider = (props) => {
     cartTotal: cartState.cartTotal,
     addToCart: addItemHandler,
     updateItemQty: updateItemQtyHandler,
-
-    // removeFromCart: removeItemHandler,
-    // clearAll: clearItemsHandler,
+    removeFromCart: removeItemHandler,
+    clearAll: clearItemsHandler,
   };
 
   return (

@@ -3,7 +3,7 @@ import styles from "./CartItems.module.css";
 import FoodContext from "../ctx/food-context";
 
 const CartItems = (props) => {
-  // const foodCtx = useContext(FoodContext);
+  const foodCtx = useContext(FoodContext);
   // const qtyRef = useRef();
   const [currPrice, setCurrPrice] = useState(props.totalPrice);
   // const [currQty, setCurrQty] = useState(props.totalQty);
@@ -20,11 +20,16 @@ const CartItems = (props) => {
   //   console.log("CurrQty: " + event.target.value);
   // };
 
+  const removeHandler = () => {
+    foodCtx.removeFromCart(props.id);
+  };
+
   return (
     <div className={styles.container}>
       <span className={styles.mainSpan}>
         {props.name}
         <div>${currPrice}</div>
+        <div className={styles.instructionsDiv}>{props.instructions}</div>
       </span>
       <div className={styles.numInput}>
         <span>x{props.totalQty}</span>
@@ -39,7 +44,7 @@ const CartItems = (props) => {
           defaultValue={props.totalQty}
         /> */}
         <div>
-          <button>REMOVE</button>
+          <button onClick={removeHandler}>REMOVE</button>
         </div>
       </div>
     </div>

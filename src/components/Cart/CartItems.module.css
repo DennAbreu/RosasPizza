@@ -12,6 +12,14 @@ p {
   padding: 0%;
 }
 
+.instructionsDiv {
+  font-style: italic;
+  float: left;
+  /* display: flex; 
+  width: 150px;
+  height: fit-content; */
+}
+
 /* .numInput {
   display: inline-block;
   position: Relative;

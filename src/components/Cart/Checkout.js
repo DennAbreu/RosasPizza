@@ -1,5 +1,4 @@
 import React, { useContext, useRef } from "react";
-import { nativeTouchData } from "react-dom/cjs/react-dom-test-utils.production.min";
 import FoodContext from "../ctx/food-context";
 
 const Checkout = (props) => {
@@ -8,48 +7,42 @@ const Checkout = (props) => {
   const emailRef = useRef();
   const streetRef = useRef();
   const cityRef = useRef();
+  const stateRef = useRef();
   const zipCodeRef = useRef();
 
-  const submitOrderHandler = (event) => {
+  const submitOrderHandler = async (event) => {
     event.preventDefault();
     const orderData = {
       name: nameRef.current.value,
       email: emailRef.current.value,
       street: streetRef.current.value,
       city: cityRef.current.value,
+      state: stateRef.current.value,
       zipCode: zipCodeRef.current.value,
       order: foodCtx.items,
-    };
+    }; //end orderData
 
-    const submitOrderToDatabase = async (data) => {
-      const orderJson = JSON.stringify(data);
-
-      const response = await fetch(
-        "https://react-http-51111-default-rtdb.firebaseio.com/orders.json",
-        {
-          method: "POST",
-          body: orderJson,
-          headers: {
-            "Content-type": "application/json",
-          },
-        }
-      ); //end fetch
-
-      if (!response.ok) {
-        throw new Error("Something went wrong with the Fetch request");
+    const response = await fetch(
+      "https://react-http-51111-default-rtdb.firebaseio.com/orders.json",
+      {
+        method: "POST",
+        body: JSON.stringify(orderData),
       }
+    ); //end fetch
 
-      submitOrderToDatabase().catch((error) => {
-        return;
-      });
-    }; //end submitOrderToDatabase
+    if (!response.ok) {
+      throw new Error("Something went wrong with the Fetch request");
+    }
+    submitOrderHandler().catch((error) => {
+      return;
+    });
 
-    submitOrderToDatabase(orderData);
     props.orderSubmitted(true);
+    foodCtx.clearAll();
   };
 
-  const clearAllHandler = (event) => {
-    event.preventDefault();
+  const clearAllHandler = () => {
+    foodCtx.clearAll();
   };
   //TODO input type to email after testing
   return (
@@ -59,13 +52,15 @@ const Checkout = (props) => {
           <label>Name</label>
           <input type="text" ref={nameRef}></input>
           <label>Email</label>
-          <input type="text" ref={emailRef}></input>
+          <input type="email" ref={emailRef}></input>
         </div>
         <div>
           <label>Street</label>
           <input type="text" ref={streetRef}></input>
           <label>City</label>
           <input type="text" ref={cityRef}></input>
+          <label>State</label>
+          <input type="text" ref={stateRef}></input>
           <label>Zipcode</label>
           <input type="text" ref={zipCodeRef}></input>
         </div>
