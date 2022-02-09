@@ -50,6 +50,11 @@ const DisplayFood = (props) => {
     <Card>
       <div>
         <ul className={styles.ulContainer}>{pizzaList}</ul>
+        {/* <ul className={styles.ulContainer}>{pizzaList}</ul>
+        <ul className={styles.ulContainer}>{pizzaList}</ul>
+        <ul className={styles.ulContainer}>{pizzaList}</ul>
+        <ul className={styles.ulContainer}>{pizzaList}</ul>
+        <ul className={styles.ulContainer}>{pizzaList}</ul> */}
       </div>
     </Card>
   );

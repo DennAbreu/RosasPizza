@@ -17,7 +17,10 @@
   border: 1px solid grey;
 }
 .foodBtn:hover {
-  background-color: blue;
+  background-color: #ff4742;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 .innerItems {

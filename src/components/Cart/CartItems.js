@@ -44,22 +44,36 @@ const CartItems = (props) => {
   return (
     <div className={styles.container}>
       <span className={styles.mainSpan}>
-        {props.name}
+        <div className={styles.itemName}>{props.name}</div>
         <div>${currPrice}</div>
         <div className={styles.instructionsDiv}>{props.instructions}</div>
       </span>
-      <div>
-        <button onClick={subFromQtyBtn}>-</button>
-        {/* <span>x{props.totalQty}</span> */}
-        <input
-          type="text"
-          ref={qtyRefHandler}
-          onChange={qtyOrderChangeHandler}
-          defaultValue={props.totalQty}
-        />
-        <button onClick={addToQtyBtn}>+</button>
-        <div>
-          <button onClick={removeHandler}>REMOVE</button>
+      <div className={styles.rightSide}>
+        <div className={styles.numInputContent}>
+          <button
+            className={`${styles.cartBtn_plusminus}`}
+            onClick={subFromQtyBtn}
+          >
+            -
+          </button>
+          {/* <span>x{props.totalQty}</span> */}
+          <input
+            type="text"
+            ref={qtyRefHandler}
+            onChange={qtyOrderChangeHandler}
+            defaultValue={props.totalQty}
+          />
+          <button
+            className={`${styles.cartBtn_plusminus}`}
+            onClick={addToQtyBtn}
+          >
+            +
+          </button>
+        </div>
+        <div className={styles.removeBtnContainer}>
+          <button className={styles.cartBtn} onClick={removeHandler}>
+            REMOVE
+          </button>
         </div>
       </div>
     </div>

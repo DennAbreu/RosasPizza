@@ -1,5 +1,6 @@
-import React, { useContext, useRef } from "react";
+import React, { Fragment, useContext, useRef } from "react";
 import FoodContext from "../ctx/food-context";
+import styles from "./Checkout.module.css";
 
 const Checkout = (props) => {
   const foodCtx = useContext(FoodContext);
@@ -46,30 +47,36 @@ const Checkout = (props) => {
   };
   //TODO input type to email after testing
   return (
-    <div>
+    <Fragment>
       <form>
-        <div>
-          <label>Name</label>
-          <input type="text" ref={nameRef}></input>
-          <label>Email</label>
-          <input type="email" ref={emailRef}></input>
+        <div className={styles.formContainer}>
+          <div className={styles.firstLine}>
+            <label>Name</label>
+            <input type="text" id="nameInput" ref={nameRef}></input>
+            <label className={styles.labelStyle}>Email</label>
+            <input type="email" ref={emailRef}></input>
+          </div>
+          <div className={styles.secondLine}>
+            <label className={styles.labelStyle}>Street</label>
+            <input type="text" id="streetInput" ref={streetRef}></input>
+            <label className={styles.labelStyle}>City</label>
+            <input type="text" ref={cityRef}></input>
+            <label className={styles.labelStyle}>State</label>
+            <input type="text" ref={stateRef} maxLength="2"></input>
+            <label className={styles.labelStyle}>Zipcode</label>
+            <input type="text" ref={zipCodeRef} maxLength="5"></input>
+          </div>
         </div>
-        <div>
-          <label>Street</label>
-          <input type="text" ref={streetRef}></input>
-          <label>City</label>
-          <input type="text" ref={cityRef}></input>
-          <label>State</label>
-          <input type="text" ref={stateRef} maxLength="2"></input>
-          <label>Zipcode</label>
-          <input type="text" ref={zipCodeRef} maxLength="5"></input>
-        </div>
-        <div>
-          <button onClick={clearAllHandler}>Clear All</button>
-          <button onClick={submitOrderHandler}>Submit Order</button>
+        <div className={styles.btnContainers}>
+          <button className={styles.cartBtn} onClick={clearAllHandler}>
+            Clear All
+          </button>
+          <button className={styles.cartBtn} onClick={submitOrderHandler}>
+            Submit Order
+          </button>
         </div>
       </form>
-    </div>
+    </Fragment>
   );
 };
 

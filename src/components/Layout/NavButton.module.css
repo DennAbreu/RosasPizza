@@ -2,9 +2,13 @@
   background-color: white;
   width: 7%;
   height: 50px;
+  border-radius: 6px;
+  border: 1px solid black;
 }
 
 .navBtn:hover {
-  background-color: black;
+  background-color: #ff4742;
   color: white;
+  font-weight: bold;
+  cursor: pointer;
 }

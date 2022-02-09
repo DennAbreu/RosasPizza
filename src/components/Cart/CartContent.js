@@ -2,6 +2,7 @@ import React, { Fragment, useContext, useEffect, useState } from "react";
 import FoodContext from "../ctx/food-context";
 import CartItems from "./CartItems";
 import Checkout from "./Checkout";
+import styles from "./CartContent.module.css";
 
 const CartContent = (props) => {
   const foodCtx = useContext(FoodContext);
@@ -57,7 +58,9 @@ const CartContent = (props) => {
 
   const notReadyToCheckoutContent = (
     <div>
-      <button onClick={setReadyHandler}>Checkout</button>
+      <button className={styles.cartBtn} onClick={setReadyHandler}>
+        Checkout
+      </button>
     </div>
   );
   const readyToCheckoutContent = (
@@ -69,7 +72,7 @@ const CartContent = (props) => {
   const showCartContents = (
     <div>
       <div>{cartItemsArray}</div>
-      <div>Total: ${foodCtx.cartTotal}</div>
+      <div className={styles.cartTotal}>Total: ${foodCtx.cartTotal}</div>
       {!rdyToCheckout && notReadyToCheckoutContent}
       {rdyToCheckout && readyToCheckoutContent}
     </div>

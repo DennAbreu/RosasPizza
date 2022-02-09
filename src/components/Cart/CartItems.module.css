@@ -2,64 +2,126 @@
   display: flex;
   justify-content: space-between;
   padding-bottom: 5px;
-  border-bottom: 1px solid black;
+  border-bottom: 0.5px dotted black;
+  margin-bottom: 5px;
 }
 
 p {
   margin: 5%;
 }
+
+.itemName {
+  color: #ff4742;
+  font-weight: bold;
+}
 .mainSpan {
   padding: 0%;
+  width: 50%;
 }
 
 .instructionsDiv {
   font-style: italic;
-  float: left;
-  /* display: flex; 
-  width: 150px;
-  height: fit-content; */
+  font-size: medium;
+  word-wrap: break-word;
 }
 
-/* .numInput {
+.rightSide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.numInputContent {
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  height: 1.5em;
+  width: 6em;
+  text-align: center;
+  font-size: 14px;
+}
+
+.removeBtnContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.cartBtn {
+  background: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
   display: inline-block;
-  position: Relative;
-  border: 1px solid black;
-  border-radius: 10px;
-  overflow: hidden;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.numInput:before,
-.numInput:after {
-  background: white;
-  right: 0px;
-  width: 30px;
-  height: 20%;
-  position: absolute;
-  pointer-events: none;
-}
-.numInput:before {
-  content: "";
-  bottom: 50%;
-  background: url(http://cdn.flaticon.com/png/256/22205.png) no-repeat white;
-  background-size: 20px;
-  background-position: center;
-}
-.numInput:after {
-  content: "";
-  top: 50%;
-  background: url(http://cdn.flaticon.com/png/256/22205.png) no-repeat white;
-  background-size: 20px;
-  transform: rotate(180deg);
-  background-position: center;
-}
-.numInputBox {
-  height: 3px;
-  font-size: 30px;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1px;
+  min-height: fit-content;
+  max-height: 40px;
+  min-width: 100%;
   outline: 0;
-  border: 0;
-} */
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+.cartBtn:hover,
+.cartBtn:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #ff4742;
+}
+
+.cartBtn:active {
+  opacity: 0.5;
+}
+
+.cartBtn_plusminus {
+  background: #ff4742;
+  border: 1px solid #ff4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1px;
+  min-height: 0.1px;
+  max-height: 0.1px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+.cartBtn_plusminus:hover,
+.cartBtn_plusminus:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #ff4742;
+}
+
+.cartBtn_plusminus:active {
+  opacity: 0.5;
+}

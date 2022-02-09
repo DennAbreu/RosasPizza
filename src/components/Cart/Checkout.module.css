@@ -1,49 +1,37 @@
-h1 {
-  color: #ff4742;
-}
-.fContainer {
+.btnContainers {
+  margin-top: 5px;
   display: flex;
-  justify-content: center;
+  justify-content: end;
 }
-.form {
+
+.formContainer {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  height: 50%;
+  align-items: flex-start;
+  margin-bottom: 5%;
 }
 
-.btnArea {
-  display: flex;
+.labelStyle {
+  margin-left: 1%;
 }
 
-.orderBtn {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+.firstLine > label {
+  margin-right: 1%;
 }
 
-.secSpacing {
-  padding-bottom: 30px;
-  width: 100%;
-  height: fit-content;
-  font-style: italic;
+.firstLine > input {
+  width: 25%;
 }
 
-input[type="radio"] {
-  margin-top: 2em;
+#nameInput::after {
+  background-color: darkcyan;
+}
+.secondLine > label {
+  margin-right: 1%;
 }
 
-textarea {
-  resize: none;
-  margin-top: 0.5em;
-  width: 100%;
-  height: 5em;
-}
-
-input[type="number"] {
-  width: 6em;
-  height: 2em;
+.secondLine > input {
+  width: 15%;
 }
 
 .cartBtn {
@@ -58,16 +46,20 @@ input[type="number"] {
   font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
   font-size: 14px;
   font-weight: 800;
-  line-height: 10px;
-  min-height: 30%;
-  width: 90%;
+  line-height: 16px;
+  min-height: fit-content;
+  max-height: 40px;
   outline: 0;
+  padding: 12px 14px;
+  text-align: center;
   text-rendering: geometricprecision;
   text-transform: none;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: middle;
+  margin-top: 5px;
+  margin-right: 5px;
 }
 .cartBtn:hover,
 .cartBtn:active {

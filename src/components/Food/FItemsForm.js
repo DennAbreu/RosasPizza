@@ -38,11 +38,11 @@ const FItemsForm = (props) => {
       <form className={styles.form}>
         <h1>{props.name}</h1>
         <section className={styles.secSpacing}>
-          <label className={styles.skip}>Special Instructions</label>
+          <label>Special Instructions</label>
           <textarea
             id="sInstructionsTxt"
             ref={instructionsRef}
-            maxLength="90"
+            maxLength="100"
             placeholder="Add a note(extra sauce, no onions, etc...)"
           ></textarea>
         </section>
@@ -57,9 +57,8 @@ const FItemsForm = (props) => {
             ref={qtyOrderedRef}
             onChange={priceHandler}
           ></input>
-          <button className={styles.orderBtn} onClick={submitHandler}>
-            <span>Add to Order</span>
-            <span>${currentPrice}</span>
+          <button className={styles.cartBtn} onClick={submitHandler}>
+            <span>Add to Order --- ${currentPrice}</span>
           </button>
         </div>
       </form>
