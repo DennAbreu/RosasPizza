@@ -1,28 +1,45 @@
-import { useState, useContext, useRef } from "react";
+import { useState, useContext, useRef, useEffect } from "react";
 import styles from "./CartItems.module.css";
 import FoodContext from "../ctx/food-context";
 
 const CartItems = (props) => {
   const foodCtx = useContext(FoodContext);
-  // const qtyRef = useRef();
+  const qtyRefHandler = useRef();
   const [currPrice, setCurrPrice] = useState(props.totalPrice);
-  // const [currQty, setCurrQty] = useState(props.totalQty);
-
-  // const updateItemQtyHandler = (num) => {
-  //   foodCtx.updateItemQty(props.id, num);
-  // };
-
-  // const onChangeHandler = (event) => {
-  //   let currQty = event.target.value;
-  //   setCurrPrice(props.individualPrice * currQty);
-  //   console.log(event.target.value);
-  //   console.log("CurrPrice: " + currPrice);
-  //   console.log("CurrQty: " + event.target.value);
-  // };
+  const [currQty, setCurrQty] = useState(props.totalQty);
 
   const removeHandler = () => {
     foodCtx.removeFromCart(props.id);
   };
+
+  const qtyOrderChangeHandler = () => {
+    setCurrQty(qtyRefHandler.current.value);
+    foodCtx.updateItemQty(props.id, qtyRefHandler.current.value);
+    console.log(qtyRefHandler.current.value);
+  };
+
+  const addToQtyBtn = () => {
+    let updatedVal = +qtyRefHandler.current.value + 1;
+    if (updatedVal > 10) {
+      updatedVal = 10;
+    }
+    setCurrQty(updatedVal);
+    foodCtx.updateItemQty(props.id, updatedVal);
+  };
+
+  const subFromQtyBtn = () => {
+    let updatedVal = +qtyRefHandler.current.value - 1;
+    if (updatedVal < 0) {
+      updatedVal = 0;
+    }
+    setCurrQty(updatedVal);
+    foodCtx.updateItemQty(props.id, updatedVal);
+  };
+
+  useEffect(() => {
+    setCurrPrice(currQty * props.individualPrice);
+    console.log(currPrice);
+  }, [currPrice, props.individualPrice, currQty]);
 
   return (
     <div className={styles.container}>
@@ -31,18 +48,16 @@ const CartItems = (props) => {
         <div>${currPrice}</div>
         <div className={styles.instructionsDiv}>{props.instructions}</div>
       </span>
-      <div className={styles.numInput}>
-        <span>x{props.totalQty}</span>
-        {/* <input
-          className={styles.numInputBox}
-          ref={qtyRef}
-          type="number"
-          min="1"
-          max="10"
-          step="1"
-          onChange={onChangeHandler}
+      <div>
+        <button onClick={subFromQtyBtn}>-</button>
+        {/* <span>x{props.totalQty}</span> */}
+        <input
+          type="text"
+          ref={qtyRefHandler}
+          onChange={qtyOrderChangeHandler}
           defaultValue={props.totalQty}
-        /> */}
+        />
+        <button onClick={addToQtyBtn}>+</button>
         <div>
           <button onClick={removeHandler}>REMOVE</button>
         </div>

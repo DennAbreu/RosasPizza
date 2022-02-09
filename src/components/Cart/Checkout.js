@@ -60,9 +60,9 @@ const Checkout = (props) => {
           <label>City</label>
           <input type="text" ref={cityRef}></input>
           <label>State</label>
-          <input type="text" ref={stateRef}></input>
+          <input type="text" ref={stateRef} maxLength="2"></input>
           <label>Zipcode</label>
-          <input type="text" ref={zipCodeRef}></input>
+          <input type="text" ref={zipCodeRef} maxLength="5"></input>
         </div>
         <div>
           <button onClick={clearAllHandler}>Clear All</button>

@@ -32,6 +32,10 @@ const qtyUpdater = (itemsArray) => {
   return totalQty;
 };
 
+const itemTotalPriceUpdater = (itemsArray, index) => {
+  return itemsArray[index].qtyOrdered * itemsArray[index].individualPrice;
+};
+
 const getIndexID = (itemsArray, id) => {
   return itemsArray
     .map((e) => {
@@ -72,21 +76,20 @@ const cartReducer = (state, action) => {
     };
   }
 
-  // if (action.type === "UPDATE_ITEM_QTY") {
-  //   const indexOfCurrItems = getIndexID(state.items, action.id);
-  //   state.items[indexOfCurrItems].totalQty = action.newQty;
-  //   const totalPriceUpdated =
-  //     state.items[indexOfCurrItems].individualPrice * action.newQty;
-  //   state.items[indexOfCurrItems].totalPrice = totalPriceUpdated;
-  //   const tQty = quantityUpdater(state.items);
-  //   const cTotal = cartTotalUpdater(state.items);
-
-  //   return {
-  //     items: state.items,
-  //     totalQty: +tQty,
-  //     cartTotal: +cTotal,
-  //   };
-  // } //end 'UPDATE_ITEM_QTY"
+  if (action.type === "UPDATE_ITEM_QTY") {
+    const itemIndex = getIndexID(state.items, action.id);
+    let updatedItems = state.items;
+    updatedItems[itemIndex].qtyOrdered = action.newQty;
+    let updatedItemPrice = itemTotalPriceUpdater(updatedItems, itemIndex);
+    updatedItems[itemIndex].totalPrice = updatedItemPrice;
+    let updatedItemQty = qtyUpdater(updatedItems);
+    let updatedCartTotal = cartTotalUpdater(updatedItems);
+    return {
+      items: updatedItems,
+      totalQty: updatedItemQty,
+      cartTotal: updatedCartTotal,
+    };
+  } //end 'UPDATE_ITEM_QTY"
 
   return defaultFoodCtx;
 }; //end cartReducer

@@ -7,6 +7,7 @@ const CartContent = (props) => {
   const foodCtx = useContext(FoodContext);
   const [orderComplete, setOrderComplete] = useState(false);
   const [cartEmpty, setCartEmpty] = useState(true);
+  const [rdyToCheckout, setRdyToCheckout] = useState(false);
 
   const fCtxArray = [];
 
@@ -47,30 +48,37 @@ const CartContent = (props) => {
     setOrderComplete(x);
   };
 
+  const setReadyHandler = () => {
+    setRdyToCheckout(true);
+  };
+
   const showSuccessOrderMessage = <p>Order was successful!</p>;
-  const emptyCart = <p>Cart is Empty.</p>;
+  const showEmptyCartMessage = <p>Cart is Empty.</p>;
+
+  const notReadyToCheckoutContent = (
+    <div>
+      <button onClick={setReadyHandler}>Checkout</button>
+    </div>
+  );
+  const readyToCheckoutContent = (
+    <div>
+      <Checkout orderSubmitted={orderSuccessHandler} />
+    </div>
+  );
 
   const showCartContents = (
     <div>
       <div>{cartItemsArray}</div>
       <div>Total: ${foodCtx.cartTotal}</div>
-      <div>
-        <Checkout orderSubmitted={orderSuccessHandler} />
-      </div>
+      {!rdyToCheckout && notReadyToCheckoutContent}
+      {rdyToCheckout && readyToCheckoutContent}
     </div>
   );
 
   return (
     <Fragment>
-      {/* <div>
-        <div>{cartItemsArray}</div>
-        <div>
-          <Checkout orderSubmitted={orderSuccessHandler} />
-        </div>
-        <div>Total: ${foodCtx.cartTotal}</div>
-      </div> */}
       {!orderComplete && !cartEmpty && showCartContents}
-      {!orderComplete && cartEmpty && emptyCart}
+      {!orderComplete && cartEmpty && showEmptyCartMessage}
       {orderComplete && showSuccessOrderMessage}
     </Fragment>
   );
