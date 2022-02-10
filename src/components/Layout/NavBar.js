@@ -9,7 +9,7 @@ const R_CATEGORIES = [
   "Round Pies",
   "Sicilian Pies",
   "Sauce",
-  "Heroes",
+  "Heros",
   "Salads",
   "Pasta ",
   "Dinner",

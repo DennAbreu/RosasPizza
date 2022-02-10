@@ -1,14 +1,17 @@
 .navBtn {
-  background-color: white;
+  background-color: #ff4742;
+  color: white;
+  font-size: medium;
   width: 7%;
   height: 50px;
   border-radius: 6px;
   border: 1px solid black;
+  margin-right: 0.5%;
 }
 
 .navBtn:hover {
-  background-color: #ff4742;
-  color: white;
+  background-color: white;
+  color: #ff4742;
   font-weight: bold;
   cursor: pointer;
 }

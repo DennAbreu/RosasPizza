@@ -15,7 +15,7 @@ const CartItems = (props) => {
   const qtyOrderChangeHandler = () => {
     setCurrQty(qtyRefHandler.current.value);
     foodCtx.updateItemQty(props.id, qtyRefHandler.current.value);
-    console.log(qtyRefHandler.current.value);
+    // console.log(qtyRefHandler.current.value);
   };
 
   const addToQtyBtn = () => {
@@ -38,7 +38,7 @@ const CartItems = (props) => {
 
   useEffect(() => {
     setCurrPrice(currQty * props.individualPrice);
-    console.log(currPrice);
+    // console.log(currPrice);
   }, [currPrice, props.individualPrice, currQty]);
 
   return (
