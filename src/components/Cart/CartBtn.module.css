@@ -1,18 +1,20 @@
 .cartContainer {
   position: absolute;
   top: 1%;
-  right: 28%;
+  right: 21%;
 }
 .badge {
   border: 1px solid black;
+  font-weight: bold;
   border-radius: 25px;
+  background-color: var(--btn-background);
   color: white;
-  width: 10%;
-  height: fit-content;
-  background-color: black;
+  width: 5%;
+  height: 5%;
   position: fixed;
 }
 
 .badge:hover {
-  background-color: aqua;
+  background-color: white;
+  color: var(--btn-background);
 }

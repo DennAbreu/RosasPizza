@@ -1,6 +1,6 @@
 import React from "react";
 import CartBtn from "../Cart/CartBtn";
-import rosasLogo from "../../assets/rosasPizza_headerImg.png";
+import rosasLogo from "../../assets/header2.png";
 import styles from "./Header.module.css";
 
 const Header = (props) => {

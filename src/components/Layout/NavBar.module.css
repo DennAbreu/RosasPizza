@@ -2,6 +2,8 @@
   margin: auto;
   width: 100%;
   text-align: center;
+  /* position: sticky; */
+  top: 0;
 }
 
 .navContainer li {

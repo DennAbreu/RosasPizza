@@ -1,5 +1,6 @@
 :root {
-  --index-background-color: white;
+  --index-background-color: #3b110f;
+  --test: #1c0807;
   --btn-background: #ff4742;
 }
 body {
@@ -9,7 +10,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--index-background-color);
+  background-color: var(--test);
 }
 
 code {

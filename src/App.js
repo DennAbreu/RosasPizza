@@ -4,6 +4,7 @@ import Header from "./components/Layout/Header";
 import NavBar from "./components/Layout/NavBar";
 import DisplayFood from "./components/Food/DisplayFood";
 import FoodProvider from "./components/ctx/FoodProvider";
+import Footer from "./components/Layout/Footer";
 import Cart from "./components/Cart/Cart";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Header onShowCart={showCartHandler} />
       <NavBar />
       <DisplayFood />
+      <Footer />
     </FoodProvider>
   );
 }

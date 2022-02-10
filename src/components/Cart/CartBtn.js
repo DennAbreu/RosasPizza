@@ -8,7 +8,7 @@ const CartBtn = (props) => {
   return (
     <div className={styles.cartContainer}>
       <button className={styles.badge} onClick={props.onShowCart}>
-        <p>{fCtx.totalQty}</p>
+        <p>Cart: {fCtx.totalQty}</p>
       </button>
     </div>
   );
