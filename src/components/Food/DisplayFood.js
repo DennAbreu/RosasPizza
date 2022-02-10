@@ -200,8 +200,6 @@ const DisplayFood = (props) => {
       onClose={props.onClose}
     />
   ));
-  // console.log("Round Pies List: ");
-  // console.log(specialtiesList);
 
   return (
     <Card>
@@ -220,7 +218,7 @@ const DisplayFood = (props) => {
         <ul className={styles.ulContainer}>{retPastaList}</ul>
         <h2 id="Dinner">Dinner</h2>
         <ul className={styles.ulContainer}>{retDinnerList}</ul>
-        <h2 id="Specialties">Specialities</h2>
+        <h2 id="Specialties">Specialties</h2>
         <ul className={styles.ulContainer}>{retSpecialtiesList}</ul>
         <h2 id="Beverages">Beverages</h2>
         <ul className={styles.ulContainer}>{retBeveragesList}</ul>
