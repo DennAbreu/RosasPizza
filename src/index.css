@@ -1,7 +1,7 @@
 :root {
   --index-background-color: #3b110f;
   --test: #1c0807;
-  --btn-background: #ff4742;
+  --foreground-color: #ff4742;
 }
 body {
   margin: 0;

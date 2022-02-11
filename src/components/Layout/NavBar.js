@@ -2,16 +2,14 @@ import React from "react";
 import NavButton from "./NavButton";
 
 import styles from "./NavBar.module.css";
-/*
-Round Pies, Sicilian Pies,Sauce, Heroes, Salads, Pasta dishes, Dinner Specials, Specialities, Beverages : 9 Buttons
-*/
+
 const R_CATEGORIES = [
   "Round Pies",
   "Sicilian Pies",
   "Sauce",
   "Heros",
   "Salads",
-  "Pasta ",
+  "Pasta",
   "Dinner",
   "Specialties",
   "Beverages",

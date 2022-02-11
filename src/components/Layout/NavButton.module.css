@@ -12,6 +12,5 @@
 .navBtn:hover {
   background-color: white;
   color: #ff4742;
-  font-weight: bold;
   cursor: pointer;
 }

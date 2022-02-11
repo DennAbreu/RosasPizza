@@ -45,7 +45,7 @@ const CartItems = (props) => {
     <div className={styles.container}>
       <span className={styles.mainSpan}>
         <div className={styles.itemName}>{props.name}</div>
-        <div>${currPrice}</div>
+        <div>${currPrice.toFixed(2)}</div>
         <div className={styles.instructionsDiv}>{props.instructions}</div>
       </span>
       <div className={styles.rightSide}>

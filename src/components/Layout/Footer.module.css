@@ -1,5 +1,11 @@
 .footer {
   display: flex;
   justify-content: center;
-  height: auto;
+  height: 3em;
+  padding-top: 1%;
+}
+
+.socialmedia {
+  margin-left: 5em;
+  height: 3em;
 }

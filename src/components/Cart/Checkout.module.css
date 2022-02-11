@@ -21,6 +21,7 @@
 
 .firstLine > input {
   width: 25%;
+  margin-bottom: 3%;
 }
 
 #nameInput::after {

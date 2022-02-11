@@ -15,7 +15,7 @@ const FoodItem = (props) => {
       <button onClick={foodModalHandler} className={styles.foodBtn}>
         <ul className={styles.innerItems}>
           <li>{props.name}</li>
-          <li>${props.price}</li>
+          <li>${props.price.toFixed(2)}</li>
         </ul>
       </button>
     </li>

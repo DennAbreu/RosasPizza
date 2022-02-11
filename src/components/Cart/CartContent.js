@@ -72,7 +72,9 @@ const CartContent = (props) => {
   const showCartContents = (
     <div>
       <div>{cartItemsArray}</div>
-      <div className={styles.cartTotal}>Total: ${foodCtx.cartTotal}</div>
+      <div className={styles.cartTotal}>
+        Total: ${foodCtx.cartTotal.toFixed(2)}
+      </div>
       {!rdyToCheckout && notReadyToCheckoutContent}
       {rdyToCheckout && readyToCheckoutContent}
     </div>

@@ -58,7 +58,7 @@ const FItemsForm = (props) => {
             onChange={priceHandler}
           ></input>
           <button className={styles.cartBtn} onClick={submitHandler}>
-            <span>Add to Order --- ${currentPrice}</span>
+            <span>Add to Order --- ${currentPrice.toFixed(2)}</span>
           </button>
         </div>
       </form>

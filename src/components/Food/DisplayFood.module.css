@@ -4,3 +4,7 @@
   flex-wrap: wrap;
   justify-content: first baseline;
 }
+
+h2 {
+  color: var(--foreground-color);
+}
