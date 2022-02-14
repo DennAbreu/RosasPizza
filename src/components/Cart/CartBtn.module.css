@@ -17,6 +17,7 @@
 .badge:hover {
   background-color: white;
   color: var(--foreground-color);
+  cursor: pointer;
 }
 
 .cartIconImage {
