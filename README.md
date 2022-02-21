@@ -1,4 +1,4 @@
-<div align="center"><img src="assets\MT2.png"></div>
+<div align="center"><img src="src\assets\rpLogo.png"></div>
 <h1 align="center">Rosa's Pizzeria Ordering App</h1>
 
 <div align="center"><img src="demo.gif">LIVE DEMO PLACEHOLDER</img></div>
@@ -14,7 +14,7 @@ My goal was to practice the fundamentals of the React frontend Javascript librar
 
 - More practice with APIs, especially in retrieving/sending data to a backend provided by Google Firebase.
 - Managing state variables in functional components through the useState() hook.
-- Using the useEffect() hook to manage side-effects after a component has been rendered without having to render the entire component again.
+- Using the useEffect() hook to manage side-effects after a component has been rendered.
 - Using the useReducer() hook to manage more complex states through dispatch functions.
 - Using the useContext() hook to avoid 'prop drilling' and to manage a global state to pass data to several specific components that required it.
 - Rendering components, such as a modal, into a DOM node that exists outside of the DOM hierarchy.
@@ -60,7 +60,7 @@ To get a local copy running on your machine please follow the steps below:
 
 11. The project is now setup to run! Run the following command to run and use the app.
     ```sh
-    npm run
+    npm start
     ```
 
 <h2>Credits</h2>
