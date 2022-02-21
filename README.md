@@ -1,70 +1,72 @@
-# Getting Started with Create React App
+<div align="center"><img src="assets\MT2.png"></div>
+<h1 align="center">Rosa's Pizzeria Ordering App</h1>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center"><img src="demo.gif">LIVE DEMO PLACEHOLDER</img></div>
 
-## Available Scripts
+<h2>About</h2>
+Rosa's Pizzeria Ordering App is a 'single-page application' (SPA) built in React for New York City's famous Rosa's Pizza.
 
-In the project directory, you can run:
+<h2>Goals</h2>
 
-### `npm start`
+My goal was to practice the fundamentals of the React frontend Javascript library, learn to manage state, and implement hooks during development.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<h2>Key Learnings</h2>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- More practice with APIs, especially in retrieving/sending data to a backend provided by Google Firebase.
+- Managing state variables in functional components through the useState() hook.
+- Using the useEffect() hook to manage side-effects after a component has been rendered without having to render the entire component again.
+- Using the useReducer() hook to manage more complex states through dispatch functions.
+- Using the useContext() hook to avoid 'prop drilling' and to manage a global state to pass data to several specific components that required it.
+- Rendering components, such as a modal, into a DOM node that exists outside of the DOM hierarchy.
 
-### `npm test`
+<h2>Built With</h2>
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Package                                                 | Docs                                                                            |
+| ------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [HTML](https://www.w3schools.com/html/)                 | [:notebook: Click Me!](https://www.w3schools.com/html/)                         |
+| [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) | [:notebook: Click Me!](https://www.w3schools.com/cssref/default.asp)            |
+| [JavaScript ES6](https://www.javascript.com/)           | [:notebook: Click Me!](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |
+| [React JS Library](https://reactjs.org/)                | [:notebook: Click Me!](https://reactjs.org/docs/getting-started.html/)          |
 
-### `npm run build`
+<h2>Getting Started</h2>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To get a local copy running on your machine please follow the steps below:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Download this project as a zip file _or_ clone the repo.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+   ```sh
+   git clone https://github.com/DennAbreu/RosasPizza.git
+   ```
 
-### `npm run eject`
+2. Open a terminal and use the following command to install NPM packages:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+   ```sh
+   npm install
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Visit [Google's Firebase site](https://firebase.google.com/) to start a new account.
+4. Once finished go to the console and click `Add a Project`.
+5. Navigate towards `Realtime Database` and set up a test database.
+6. Import the downloaded JSON item, `pizzaItems.json`, that is located in the `RosasPizza/src/assets/` folder in your local repository.
+7. Copy the URL that is unique to your account.
+8. Once you have the database URL navigate towards the local repository where you cloned the project.
+9. You will need to replace the URL to the database in two locations. The first location is located in `RosasPizza/src/components/Food/DisplayFood.js`. Change the string `URL GOES HERE` to your own Firebase URL in the variable `dbUrl = 'URL GOES HERE'`. Make sure to add a '/pizzaItems.json' tp the end of the URL.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+   `Example: YourUrl.firebaseio.com/pizzaItems.json`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+10. The second location is located in `RosasPizza/src/components/Cart/Checkout.js`. Change the string `'URL GOES HERE'` to your own Firebase URL in the variable `dbUrl = 'URL GOES HERE'`. make sure to add `/orders.json` to the end of the URL.
 
-## Learn More
+    `Example: YOUR_URL.firebaseio.com/orders.json`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+11. The project is now setup to run! Run the following command to run and use the app.
+    ```sh
+    npm run
+    ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<h2>Credits</h2>
 
-### Code Splitting
+- Author: <a href="https://www.linkedin.com/in/dennabreu/" target="_blank">Dennis Abreu</a>
+- Graphics: <a href="https://www.linkedin.com/in/dennabreu/" target="_blank">Dennis Abreu </a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<h2>Copyright</h2>
+This project is licensed under the terms of the MIT license and protected by Udacity Honor Code and Community Code of Conduct. See <a href="LICENSE.md">license</a> and <a href="LICENSE.DISCLAIMER.md">disclaimer</a>.

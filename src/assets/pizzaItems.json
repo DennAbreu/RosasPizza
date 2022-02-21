@@ -1,0 +1,319 @@
+{
+  "pizzaItems" : {
+    "Antipasto Salad" : {
+      "category" : "Salads",
+      "name" : "Antipasto Salad",
+      "price" : 8
+    },
+    "BBQ Pie" : {
+      "category" : "Round Pies",
+      "name" : "BBQ Pie",
+      "price" : 19
+    },
+    "Baked Clams" : {
+      "category" : "Dinner",
+      "name" : "Baked Clams",
+      "price" : 6.5
+    },
+    "Baked Ziti" : {
+      "category" : "Pasta",
+      "name" : "Baked Ziti",
+      "price" : 8
+    },
+    "Beer" : {
+      "category" : "Beverages",
+      "name" : "Beer",
+      "price" : 3
+    },
+    "Broccoli Roll Broccoli & Cheese" : {
+      "category" : "Specialties",
+      "name" : "Broccoli Roll Broccoli & Cheese",
+      "price" : 5
+    },
+    "Buffalo Chicken" : {
+      "category" : "Round Pies",
+      "name" : "Buffalo Chicken Pie",
+      "price" : 19
+    },
+    "Buffalo Wings" : {
+      "category" : "Specialties",
+      "name" : "Buffalo Wings",
+      "price" : 3
+    },
+    "Calzone Ricotta & Cheese" : {
+      "category" : "Specialties",
+      "name" : "Calzone Ricotta & Cheese",
+      "price" : 5
+    },
+    "Chicken Cutlet Parmigiana" : {
+      "category" : "Dinner",
+      "name" : "Chicken Cutlet Parmigiana",
+      "price" : 11
+    },
+    "Chicken Roll Chicken Sausage & Cheese" : {
+      "category" : "Specialties",
+      "name" : "Chicken Roll Chicken Sausage & Cheese",
+      "price" : 5
+    },
+    "Chicken Salad" : {
+      "category" : "Salads",
+      "name" : "Chicken Salad",
+      "price" : 8
+    },
+    "Eggplant Parmigiana" : {
+      "category" : "Dinner",
+      "name" : "Eggplant Parmigiana",
+      "price" : 10.5
+    },
+    "Eggplant Pie" : {
+      "category" : "Round Pies",
+      "name" : "Eggplant Pie",
+      "price" : 18
+    },
+    "Eggplant Roll Eggplant Ricotta & Sauce" : {
+      "category" : "Specialties",
+      "name" : "Eggplant Roll Eggplant Ricotta & Sauce",
+      "price" : 5
+    },
+    "Eggplant Rollatini" : {
+      "category" : "Pasta",
+      "name" : "Eggplant Rollatini",
+      "price" : 8
+    },
+    "Fried Calamari" : {
+      "category" : "Dinner",
+      "name" : "Fried Calamari",
+      "price" : 9
+    },
+    "Garlic Bread" : {
+      "category" : "Heros",
+      "name" : "Garlic Bread",
+      "price" : 2
+    },
+    "Garlic Knots" : {
+      "category" : "Heros",
+      "name" : "Garlic Knots",
+      "price" : 1.5
+    },
+    "Grandma Pie" : {
+      "category" : "Sicilian Pies",
+      "name" : "Grandma Pie",
+      "price" : 15.5
+    },
+    "Grilled Chicken Caesar" : {
+      "category" : "Round Pies",
+      "name" : "Grilled Chicken Caesar Pie",
+      "price" : 21
+    },
+    "Grilled Chicken Caesar Salad" : {
+      "category" : "Salads",
+      "name" : "Grilled Chicken Caesar Salad",
+      "price" : 8
+    },
+    "Ham Calzone Ham Ricotta & Cheese" : {
+      "category" : "Specialties",
+      "name" : "Ham Calzone Ham Ricotta & Cheese",
+      "price" : 5.75
+    },
+    "Hawaiian Pie" : {
+      "category" : "Round Pies",
+      "name" : "Hawaiian Pie",
+      "price" : 19
+    },
+    "House Salad" : {
+      "category" : "Salads",
+      "name" : "House Salad",
+      "price" : 4
+    },
+    "Lasagna" : {
+      "category" : "Pasta",
+      "name" : "Lasagna",
+      "price" : 8
+    },
+    "Lasagna Pie" : {
+      "category" : "Round Pies",
+      "name" : "Lasagna Pie",
+      "price" : 18
+    },
+    "Linguine" : {
+      "category" : "Pasta",
+      "name" : "Linguine",
+      "price" : 9
+    },
+    "Manicotti" : {
+      "category" : "Pasta",
+      "name" : "Manicotti",
+      "price" : 7.5
+    },
+    "Marinara Sauce" : {
+      "category" : "Sauce",
+      "name" : "Marinara Sauce",
+      "price" : 3
+    },
+    "Meatball Hero" : {
+      "category" : "Heros",
+      "name" : "Meatball Hero",
+      "price" : 5.5
+    },
+    "Meatball Parmigiana" : {
+      "category" : "Heros",
+      "name" : "Meatball Parmigiana",
+      "price" : 6
+    },
+    "Meatball Roll Meatball Sauce & Cheese" : {
+      "category" : "Specialties",
+      "name" : "Meatball Roll Meatball Sauce & Cheese",
+      "price" : 5
+    },
+    "Mozzarella Sticks" : {
+      "category" : "Specialties",
+      "name" : "Mozzarella Sticks",
+      "price" : 3
+    },
+    "New Zealand Mussels" : {
+      "category" : "Dinner",
+      "name" : "New Zealand Mussels",
+      "price" : 8
+    },
+    "Panini" : {
+      "category" : "Specialties",
+      "name" : "Panini",
+      "price" : 5
+    },
+    "Penne Vodka Sauce" : {
+      "category" : "Pasta",
+      "name" : "Penne Vodka Sauce",
+      "price" : 8
+    },
+    "Peppers & Eggs" : {
+      "category" : "Heros",
+      "name" : "Peppers & Eggs",
+      "price" : 5.5
+    },
+    "Pizza Sauce" : {
+      "category" : "Sauce",
+      "name" : "Pizza Sauce",
+      "price" : 2.5
+    },
+    "Ravioli" : {
+      "category" : "Pasta",
+      "name" : "Ravioli",
+      "price" : 7
+    },
+    "Ravioli Pie" : {
+      "category" : "Round Pies",
+      "name" : "Ravioli Pie",
+      "price" : 19
+    },
+    "Regular Cheese Pie" : {
+      "category" : "Round Pies",
+      "name" : "Regular Cheese Pie",
+      "price" : 13
+    },
+    "Regular Sicilian Pie" : {
+      "category" : "Sicilian Pies",
+      "name" : "Regular Sicilian Pie",
+      "price" : 16.5
+    },
+    "Salad Pie" : {
+      "category" : "Round Pies",
+      "name" : "Salad Pie",
+      "price" : 14
+    },
+    "Sausage & Peppers" : {
+      "category" : "Heros",
+      "name" : "Sausage & Peppers",
+      "price" : 6.5
+    },
+    "Sausage Hero" : {
+      "category" : "Heros",
+      "name" : "Sausage Hero",
+      "price" : 5.5
+    },
+    "Sausage Parmigiana" : {
+      "category" : "Heros",
+      "name" : "Sausage Parmigiana",
+      "price" : 6
+    },
+    "Sausage Roll Sausage & Pepper & Cheese" : {
+      "category" : "Specialties",
+      "name" : "Sausage Roll Sausage & Pepper & Cheese",
+      "price" : 5
+    },
+    "Sfingioni" : {
+      "category" : "Sicilian Pies",
+      "name" : "Sfingioni",
+      "price" : 15.5
+    },
+    "Shrimp Marinara" : {
+      "category" : "Dinner",
+      "name" : "Shrimp Marinara",
+      "price" : 12.5
+    },
+    "Shrimp Parmigiana" : {
+      "category" : "Dinner",
+      "name" : "Shrimp Parmigiana",
+      "price" : 13.5
+    },
+    "Sicilian Eggplant Pie" : {
+      "category" : "Sicilian Pies",
+      "name" : "Sicilian Eggplant Pie",
+      "price" : 21
+    },
+    "Soda" : {
+      "category" : "Beverages",
+      "name" : "Soda",
+      "price" : 2
+    },
+    "Soda By The Bottle" : {
+      "category" : "Beverages",
+      "name" : "Soda By The Bottle",
+      "price" : 3.25
+    },
+    "Spaghetti" : {
+      "category" : "Pasta",
+      "name" : "Spaghetti",
+      "price" : 6
+    },
+    "Spaghetti Sauce" : {
+      "category" : "Sauce",
+      "name" : "Spaghetti Sauce",
+      "price" : 2.5
+    },
+    "Spinach Roll Spinach Ricotta & Sauce" : {
+      "category" : "Specialties",
+      "name" : "Spinach Roll Spinach Ricotta & Sauce",
+      "price" : 5
+    },
+    "Stuffed Shells" : {
+      "category" : "Pasta",
+      "name" : "Stuffed Shells",
+      "price" : 7.5
+    },
+    "Taco Pie" : {
+      "category" : "Round Pies",
+      "name" : "Taco Pie",
+      "price" : 18.5
+    },
+    "Veal Cutlet Parmigiana" : {
+      "category" : "Dinner",
+      "name" : "Veal Cutlet Parmigiana",
+      "price" : 12.5
+    },
+    "Vegetable Pie" : {
+      "category" : "Round Pies",
+      "name" : "Vegetable Pie",
+      "price" : 18
+    },
+    "Vodka Sauce" : {
+      "category" : "Sauce",
+      "name" : "Vodka Sauce",
+      "price" : 4.5
+    },
+    "Wine" : {
+      "category" : "Beverages",
+      "name" : "Wine",
+      "price" : 4.5
+    }
+  }
+}
