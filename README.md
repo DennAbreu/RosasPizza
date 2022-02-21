@@ -1,7 +1,7 @@
 <div align="center"><img src="src\assets\rpLogo.png"></div>
 <h1 align="center">Rosa's Pizzeria Ordering App</h1>
 
-<div align="center"><a href='https://www.youtube.com/watch?v=V-tVElokCMM'>Click to see a quick demo!</a></div>
+<div align="center"><a href='https://www.youtube.com/watch?v=V-tVElokCMM' target='_blank'>Click to see a quick demo!</a></div>
 
 <h2>About</h2>
 Rosa's Pizzeria Ordering App is a 'single-page application' (SPA) built in React for New York City's famous Rosa's Pizza.
